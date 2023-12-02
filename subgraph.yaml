@@ -1,0 +1,30 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: chapel
+    source:
+      address: "0xDC9B0239B6Fe1B721212C61648d04c77452fA9B3"
+      abi: Contract
+      startBlock: 35580181
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AdminChanged
+        - BeaconUpgraded
+        - Upgraded
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: AdminChanged(address,address)
+          handler: handleAdminChanged
+        - event: BeaconUpgraded(indexed address)
+          handler: handleBeaconUpgraded
+        - event: Upgraded(indexed address)
+          handler: handleUpgraded
+      file: ./src/contract.ts
