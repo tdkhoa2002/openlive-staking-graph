@@ -1,23 +1,52 @@
 # openlive-staking-graph
 
-## Join https://thegraph.com/hosted-service
+This repository contains the source code for a staking graph implemented using The Graph hosted service.
 
-## Login the graph by account github
+## Getting Started
 
-## Go to "My Dashboard" tab and create your subgraph
+Follow these instructions to set up and deploy the staking graph using The Graph hosted service.
 
-## Copy and paste your authenticate key in your subgraph deployed into terminal in source code
+### Prerequisites
 
-- graph auth --product hosted-service [Access token]
+- Node.js (https://nodejs.org/)
+- Yarn (https://yarnpkg.com/)
 
-## Generate build
+### Join The Graph Hosted Service
 
-- yarn codegen
+1. Visit [The Graph hosted service](https://thegraph.com/hosted-service) and create an account.
 
-## Build subgraph
+### Login to The Graph with GitHub Account
 
-- yarn build --network [NETWORK]
+2. Log in to The Graph platform using your GitHub account.
 
-## Deploy subgraph
+### Create Your Subgraph
 
-- yarn deploy --network [NETWORK]
+3. Navigate to the "My Dashboard" tab on The Graph platform and create a new subgraph for your staking data.
+
+### Copy and Paste Your Authentication Key
+
+4. Obtain an authentication key from your subgraph on The Graph.
+
+5. Open your terminal and paste the authentication key into your source code:
+
+   ```bash
+   graph auth --product hosted-service [Access token]
+   ```
+   
+### Generate Build
+
+  ```bash
+  yarn codegen
+  ```
+
+### Build Subgraph
+
+  ```bash
+  yarn build --network [NETWORK]
+  ```
+
+### Deploy Subgraph
+
+  ```bash
+  yarn deploy --network [NETWORK]
+  ```
