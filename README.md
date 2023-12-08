@@ -23,11 +23,11 @@ Follow these instructions to set up and deploy the staking graph using The Graph
 
 3. Navigate to the "My Dashboard" tab on The Graph platform and create a new subgraph for your staking data.
 
-### Copy and Paste Your Authentication Key
+### Copy and Paste Your Access Token
 
-4. Obtain an authentication key from your subgraph on The Graph.
+4. Obtain an access token from your subgraph on The Graph.
 
-5. Open your terminal and paste the authentication key into your source code:
+5. Open your terminal and paste the access token into your source code:
 
    ```bash
    graph auth --product hosted-service [Access token]
