@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: Contract
-    network: chapel
+    network: bsc
     source:
+      address: "0xeCa6B0A8F9e3041b023ae6bB11182B7980cF3cf8"
       abi: Contract
-      address: "0xF8FA3949c58b48b0DbbF5D1b1488A431Acbf4BdB"
-      startBlock: 35678557
+      startBlock: 33960478
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -30,11 +30,11 @@ dataSources:
       file: ./src/contract.ts
   - kind: ethereum
     name: NFTStaking
-    network: chapel
+    network: bsc
     source:
+      address: "0xeCa6B0A8F9e3041b023ae6bB11182B7980cF3cf8"
       abi: NFTStaking
-      address: "0xF8FA3949c58b48b0DbbF5D1b1488A431Acbf4BdB"
-      startBlock: 35678557
+      startBlock: 33960478
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
