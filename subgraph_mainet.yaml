@@ -1,0 +1,74 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: bsc
+    source:
+      address: "0xeCa6B0A8F9e3041b023ae6bB11182B7980cF3cf8"
+      abi: Contract
+      startBlock: 33960478
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AdminChanged
+        - BeaconUpgraded
+        - Upgraded
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: AdminChanged(address,address)
+          handler: handleAdminChanged
+        - event: BeaconUpgraded(indexed address)
+          handler: handleBeaconUpgraded
+        - event: Upgraded(indexed address)
+          handler: handleUpgraded
+      file: ./src/contract.ts
+  - kind: ethereum
+    name: NFTStaking
+    network: bsc
+    source:
+      address: "0xeCa6B0A8F9e3041b023ae6bB11182B7980cF3cf8"
+      abi: NFTStaking
+      startBlock: 33960478
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Newbie
+        - NewDeposit
+        - UnStake
+        - Withdrawn
+        - FeePayed
+        - CommissionClaimed
+        - User
+        - UpdateSponsor
+      abis:
+        - name: NFTStaking
+          file: ./abis/NFTStaking.json
+      eventHandlers:
+        - event: Newbie(address,uint256)
+          handler: handleNewbie
+        - event: NewDeposit(indexed
+            address,uint8,uint8,uint256,uint256,uint256,uint256,uint256)
+          handler: handleNewDeposit
+        - event: UnStake(indexed address,uint256,uint256,uint256)
+          handler: handleUnStake
+        - event: Withdrawn(indexed address,uint256,uint256,uint256,uint256)
+          handler: handleWithdrawn
+        - event: FeePayed(indexed address,uint256)
+          handler: handleFeePayed
+        - event: CommissionClaimed(indexed address,uint256)
+          handler: handleCommissionClaimed
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Unpaused(address)
+          handler: handleUnpaused
+        - event: UpdateSponsor(indexed address,address)
+          handler: handleUpdateSponsor
+      file: ./src/NFTStaking.ts

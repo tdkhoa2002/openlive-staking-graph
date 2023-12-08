@@ -1,0 +1,95 @@
+type AdminChanged @entity(immutable: true) {
+  id: Bytes!
+  previousAdmin: Bytes! # address
+  newAdmin: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type BeaconUpgraded @entity(immutable: true) {
+  id: Bytes!
+  beacon: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Upgraded @entity(immutable: true) {
+  id: Bytes!
+  implementation: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+#=================================================
+type User @entity {
+  id: Bytes!
+  address: Bytes!
+  registerTime: BigInt!
+  lastStake: BigInt!
+  sponsorAddress: Bytes!
+  totalCommission: BigInt!
+  totalSponsoredUsers: BigInt!
+  totalVolume: BigInt!
+  totalCurrentStake: BigInt!
+  totalF1: BigInt!
+  totalF2: BigInt!
+  totalF3: BigInt!
+  deposits: [NewDeposit!]! @derivedFrom(field: "user")
+}
+
+type UpdateSponsor @entity {
+  id: ID!
+  userAddress: Bytes!
+  sponsorAddress: Bytes!
+}
+
+type NewDeposit @entity {
+  id: ID!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  amount: BigInt!
+  userAddress: Bytes!
+  user: User!
+  apr: BigInt!
+  fee: BigInt!
+  start: BigInt!
+  finish: BigInt!
+  plan: BigInt!
+  poolId: BigInt!
+}
+
+type Unstake @entity {
+  id: ID!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  userAddress: Bytes!
+  start: BigInt!
+  amount: BigInt!
+  profit: BigInt!
+}
+
+type CommissionClaimed @entity {
+  id: ID!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  userAddress: Bytes!
+  amount: BigInt!
+}
+
+type Withdrawn @entity {
+  id: ID!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  userAddress: Bytes!
+  profit: BigInt!
+  start: BigInt!
+  poolId: BigInt!
+  plan: BigInt!
+}
