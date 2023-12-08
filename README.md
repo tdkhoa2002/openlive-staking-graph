@@ -1,10 +1,10 @@
 # openlive-staking-graph
 
 ## Generate build
-- run "yarn codegen"
+- yarn codegen
 
 ## Build subgraph
-- yarn build --network bsc
+- yarn build --network [NETWORK]
 
 ## Deploy subgraph
-- yarn deploy-mainet
+- yarn deploy --network [NETWORK]
